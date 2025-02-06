@@ -23,7 +23,7 @@ public class MascotaController {
     @GetMapping("/mascotas")
     public String listarMascotas(Model model) {
         model.addAttribute("mascotas", mascotaService.listarMascotas());
-        return "/pages/mascotas";
+        return "/pages/vistaMascota";
     }
 
     // CREAR
