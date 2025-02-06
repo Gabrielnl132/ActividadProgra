@@ -1,6 +1,8 @@
 package com.example.Mascotas.Controlador;
 
+import com.example.Mascotas.Entidad.Cliente;
 import com.example.Mascotas.Entidad.Mascota;
+import com.example.Mascotas.Entidad.Producto;
 import com.example.Mascotas.Servicio.MascotaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,18 +22,31 @@ public class MascotaController {
         return "/index";
     }
 
-    @GetMapping("/mascotas")
+    //LISTADO DE MASCOTAS
+    @GetMapping("/listaMascotas")
     public String listarMascotas(Model model) {
         model.addAttribute("mascotas", mascotaService.listarMascotas());
         return "/pages/vistaMascota";
     }
 
-    // CREAR
-    @GetMapping("/formulario")
-    public String formularioMascota(Model model) {
-        model.addAttribute("mascota", new Mascota());
-        return "/Mascota/formulario";
+
+
+
+    // LISTADO DE LOS CLIENTES
+    @GetMapping("/listaCliente")
+    public String listadoCliente(Model model) {
+        model.addAttribute("cliente", new Cliente());
+        return "/pages/vistaCliente";
     }
+
+
+    //LISTADO DE PRODUCTOS
+    @GetMapping("/listaProductos")
+    public String listadoProductos(Model model) {
+        model.addAttribute("producto", new Producto());
+        return "/pages/vistaProducto";
+    }
+
 
     @PostMapping("/guardar")
     public String crearMascota(Mascota mascota) {
