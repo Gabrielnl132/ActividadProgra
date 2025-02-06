@@ -17,7 +17,7 @@ public class MascotaController {
 
     @GetMapping("/")
     public String vista() {
-        return "/pages/index";
+        return "/index";
     }
 
     @GetMapping("/mascotas")
