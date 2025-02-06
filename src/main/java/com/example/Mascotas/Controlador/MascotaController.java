@@ -14,10 +14,16 @@ public class MascotaController {
     @Autowired
     private MascotaService mascotaService;
 
+
+    @GetMapping("/")
+    public String vista() {
+        return "/pages/index";
+    }
+
     @GetMapping("/mascotas")
     public String listarMascotas(Model model) {
         model.addAttribute("mascotas", mascotaService.listarMascotas());
-        return "mascotas";
+        return "/pages/mascotas";
     }
 
     // CREAR

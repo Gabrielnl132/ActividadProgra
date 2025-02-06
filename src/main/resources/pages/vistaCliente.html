@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<nav class="bg-gray-800 text-white p-4">
+    <ul class="flex space-x-4">
+        <li><a href="/" class="hover:text-yellow-400">Inicio</a></li>
+        <li><a href="/mascotas" class="hover:text-yellow-400">Mascotas</a></li>
+        <li><a href="/clientes" class="hover:text-yellow-400">Clientes</a></li>
+        <li><a href="/productos" class="hover:text-yellow-400">Productos</a></li>
+    </ul>
+</nav>
+
+<div class="container mx-auto p-4">
+    <h1 class="text-4xl font-bold mb-4">Listado de Clientes</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div th:each="cliente : ${clientes}" class="bg-white p-4 rounded shadow">
+            <h2 class="text-xl font-semibold" th:text="${cliente.nombre}"></h2>
+            <p th:text="'Email: ' + ${cliente.email}"></p>
+            <p th:text="'Teléfono: ' + ${cliente.telefono}"></p>
+            <p th:text="'Dirección: ' + ${cliente.direccion}"></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
